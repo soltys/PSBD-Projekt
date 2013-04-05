@@ -1,10 +1,18 @@
 \documentclass[a4paper]{article}
+
 \usepackage{placeins}
 \usepackage{multicol}
 \usepackage{parskip}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage{tabu}
-
+\usepackage{longtable}
 \usepackage{polski}
 \usepackage[utf8]{inputenc} 
 \usepackage{amsmath}
@@ -12,22 +20,87 @@
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
+%relationsTable
+\newenvironment{relationsTable}[2]{
+
+\begin{center}
+  \begin{longtabu}{|l|l|c|c|}
+  
+ 	  \caption{#1}
+  \label{#2}
+  \hline
+	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
+	\endfirsthead
+		
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+  	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
+\endhead	
+	
+	
+\hline \multicolumn{4}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+%relationsTable after
+{
+	\end{longtabu}
+	\end{center}
+}
+
+
+
+% attributesTable
+\newenvironment{attributesTable}[1]
+{
+\begin{longtabu}{|l|l|}
+\caption{Lista atrybutów dla obiektu \textbf{#1}}
+ ~\\ \hline
+\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
+	\endfirsthead
+		
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
+\endhead		
+	
+\hline \multicolumn{2}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+% attributesTable after
+{
+\end{longtabu}
+}
+% attributesTable end
+
+
 \title{Programowanie serwerów baz danych}
 \author{Paweł Sołtysiak, Marcin Klepacki}
 \date{\today}
 
 \begin{document}
-\input{tex/title}
-
+\input{title}
+\tableofcontents
+\listoftables
 \section{Cel projektu}
 Celem projektu jest opracowanie modelu danych oraz mechanizmów programowania baz danych dla systemu wspomagającego zarządzanie zasobami ludzkimi.
+
 \section{Zakres funkcjonalny}
 System ten będzie przechowywał podstawowe informacje, które usprawnią działanie działu kadr w firmie IT. Baza będzie gromadzić informacje o pracownikach, ich kompetencjach, szkoleniach itp.
 \subsection{Moduły funkcjonalne}
 \begin{itemize}
-\item Moduł \textbf{Pracownik} -- ewidencja pracowników
+\item Moduł \textbf{Osoba} -- ewidencja pracowników oraz kandydatów.
 \item Moduł \textbf{Szkolenia} -- Lista dostępnych szkoleń, możliwość zapisania pracownika na szkolenie.
-\item Moduł \textbf{Stanowisko} -- Hierarchia stanowisk w firmie
+\item Moduł \textbf{Stanowisko} -- Hierarchia stanowisk w firmie.
 \item Moduł \textbf{Administracja pracownikami} -- Przyznawanie urlopów, odnotowywanie zwolnień lekarskich.
 \end{itemize}
 \subsection{Kategorie użytkowników systemu i ich uprawnienia (realizowane funkcje)}
@@ -42,8 +115,7 @@ System ten będzie przechowywał podstawowe informacje, które usprawnią dział
 \begin{enumerate}
 
 
-\item Pracownik
-\item Dane-osobowe
+\item Osoba
 \item Państwo
 \item Miasto
 \item Umiejętność
@@ -52,70 +124,38 @@ System ten będzie przechowywał podstawowe informacje, które usprawnią dział
 \item Historia-Zatrudnienia
 \item Firma
 \item Uprawnienie
+\item Certyfikat
 \item Szkolenie
-\item Szkolenie-Planowane
+\item Typ-Szkolenia
 \item Stanowisko
-\item Zwolnienie-Lekarskie
+\item Odział
+\item Dział
 \item Urlop
-\item Kandydat
-
+\item Typ-Urlop
+\item Umowa
+\item Typ-Umowa
+\item Stan-cywilny
+\item Język-obcy
+\item Rodzaj-Znajomości
+\item Historia-Edukacji
+\item Szkoła
+\item Hobby
 \end{enumerate}
 \end{multicols}
 \subsection{Powiązanie między obiektami}
-Spis relacji występujących w systemie bazodanowym
+Spis relacji występujących w systemie bazodanowym, znajduje się w tabeli nr \ref{tab:database-relations} na stronie \pageref{tab:database-relations}, przy wykorzystaniu notacji (\emph{min-max})
 
+\input{tables-relations}
 
-\begin{table}[!htbp]
-  \centering
-  \begin{tabu}{|l|l|c|c|}
-  \hline
-	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
-	
-	%PRACOWNIK
-	\hline
-	Dane Osobowe & Pracownik  & $1:1$ & \texttt{PK} \\	
-	\hline		
-	Umiejętność & Pracownik  & $M:N$ &  --- \\
-	\hline	
-	Typ-Zatrudnienia & Pracownik & $0:1$ & \texttt{FK}\\
-	\hline
-	Historia-Zatrudnienia & Pracownik & $0:*$  & \texttt{PK}\\
-	\hline
-	Uprawnienie & Pracownik & $M:N$ & ---\\
-	\hline
-	Szkolenie & Pracownik & $0:*$ & \texttt{PK}\\
-	\hline
-	Szkolenie-Planowane & Pracownik & $0:*$ & \texttt{PK}\\
-	\hline
-	Stanowisko & Pracownik& $1:*$ &	\texttt{FK}\\
-	\hline
-	Zwolnienie-Lekarskie & Pracownik & $0:*$ & \texttt{PK}\\
-	\hline
-	Urlop & Pracownik & $0:*$ & \texttt{PK}\\	
-	
-	%DANE OSOBOWE
-	\hline	
-	Miasto &  Dane-Osobowe &$1:*$ &\texttt{FK}\\
-	
-	%PAŃSTWO
-	\hline
-	Państwo & Miasto & $1:*$ & \texttt{FK}	\\
-	
-	%UMIEJĘTNOŚCI
-	\hline
-	Poziom-Umiejętności & Umiejętność & $1:*$ & \texttt{FK}\\	
+Spis relacji dla tabel skrzyżowań, znajdują się w tabeli nr \ref{tab:database-crossover} na stronie \pageref{tab:database-crossover}, przy wykorzystaniu notacji (\emph{min-max})
 
-	%FIRMA
-	\hline	
-	Firma & Historia-Zatrudnienia & $0:*$& \texttt{FK}\\	
-	
-	%Ostatnia linia
-	\hline
-  \end{tabu}
-  \caption{Powiązania pomiędzy obiektami}
-  \label{tab:myfirsttable}
-\end{table}
+\input{tables-crossover}
 
+\subsection{Klucze główne i pozostałe atrybuty}
+
+\subsection{Diagram modelu SERM}
+
+\input{attributes}
 
 \end{document}
 

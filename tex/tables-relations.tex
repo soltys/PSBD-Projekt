@@ -1,0 +1,81 @@
+\begin{relationsTable}{Spis relacji}{tab:database-relations}
+
+%PRACOWNIK
+	\hline	
+	Miasto & Pracownik &$1:*$ &\texttt{FK}\\	
+	\hline		
+	Umiejętność & Pracownik  & $M:N$ &  --- \\
+	\hline	
+	Umowa & Pracownik & $1:*$ & \texttt{FK}\\
+	\hline
+	Historia-Zatrudnienia & Pracownik & $M:N$  & ---\\
+	\hline
+	Uprawnienie & Pracownik & $M:N$ & ---\\
+	\hline
+	Certyfikat & Pracownik & $M:N$ & ---\\
+	\hline
+	Szkolenie & Pracownik & $M:N$ & ---\\
+	\hline
+	Stanowisko & Pracownik& $0:*$ &	\texttt{FK}\\
+	\hline
+	Odział & Pracownik& $0:*$ &	\texttt{FK}\\
+	\hline
+	Pracownik  & Urlop  & $0:*$ & \texttt{PK}\\	
+	\hline
+	Umowa &Pracownik & $0:1$ & \texttt{PK}\\
+	\hline
+	Stan-cywilny & Pracownik & $1:*$ & \texttt{FK}\\
+	\hline
+	Język-obcy & Pracownik & $M:N$ & ---\\
+	\hline
+	Historia-Edukacji & Pracownik & $M:N$ & --- \\
+	\hline
+	Hobby & Pracownik & $M:N$ & ---\\
+	%PAŃSTWO
+	\hline
+	Państwo & Miasto & $1:*$ & \texttt{FK}	\\
+	
+	%MIASTO
+	\hline
+	Miasto & Firma & $1:*$ & \texttt{FK}\\
+	\hline
+	Miasto & Szkoła & $1:*$ & \texttt{FK}\\
+		
+	%UMIEJĘTNOŚĆ
+	\hline
+	Poziom-Umiejętności &	Umiejętność & $1:*$ & \texttt{FK}\\
+	\hline
+    Umiejętność &  Szkolenie & $1:*$ & \texttt{FK}\\
+	
+	%Historia-Zatrudnienia
+	\hline
+	Typ-Zatrudnienia & Historia-Zatrudnienia & $1:*$ & \texttt{FK}\\
+	\hline
+	Firma & Historia-Zatrudnienia & $1:*$ & \texttt{FK}\\
+	
+	%SZKOLENIE
+	\hline
+	Typ-Szkolenia & Szkolenie & $1:*$ & \texttt{FK}\\
+	
+	%Odział
+	\hline
+	Dział &	Odział & $1:*$ &\texttt{FK}\\
+	
+	%URLOP
+	\hline
+	Typ-Urlop & Urlop & $1:*$ & \texttt{FK}\\
+	
+	%UMOWA
+	\hline
+	Typ-Umowa & Umowa & $1:*$ & \texttt{FK}\\
+	
+	%JĘZYK OBCY
+	\hline
+	Rodzaj-Znajomość & Język-obcy & $1:*$ & \texttt{FK}\\
+	
+	%Historia-Edukacji
+	\hline
+	Szkoła & Historia-Edukacji & $1:*$ & \texttt{FK}\\
+	
+
+\end{relationsTable}

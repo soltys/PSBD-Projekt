@@ -1,0 +1,312 @@
+
+\begin{attributesTable}{Osoba}
+\hline
+\underline{Id} & int \\
+\hline
+Imię & text \\
+\hline
+Nazwisko & text\\
+\hline
+Data-Urodzenia & datetime \\
+\hline
+Miasto-Id & int \\
+\hline
+Telefon & text\\
+\hline
+E--mail & text \\
+\hline
+PESEL & text \\
+\hline
+Stanowisko-Id & int \\
+\hline
+Odział-Id & int \\
+\hline
+Umowa-Id & int \\
+\hline
+Stan-Cywilny-Id & int \\
+\hline
+Kandydat & bool \\
+
+%Ostatnia linia
+\hline
+
+\end{attributesTable}
+
+
+\begin{attributesTable}{Państwo}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Miasto}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Państwo-Id & int \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Umiejętność}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Poziom-Umiejętności-Id & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Poziom-Umiejętności}
+\hline
+\underline{Id} & int \\
+\hline
+Opis & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Typ-Zatrudnienia}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Historia-Zatrudnienia}
+\hline
+\underline{Id} & int \\
+\hline
+Od-kiedy & datetime \\
+\hline
+Do-kiedy & datetime \\
+\hline
+Typ-Zatrudnienia-Id & int \\
+\hline
+Firma-Id & int \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Firma}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Miasto-Id & int\\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Uprawnienie}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Ważność & datetime\\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Certyfikat}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Osoba-Wystawiająca & text\\
+\end{attributesTable}
+
+\begin{attributesTable}{Szkolenie}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Od-kiedy & datetime\\
+\hline
+Do-kiedy & datetime\\
+\hline
+Typ-Szkolenia-Id & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Typ-Szkolenia}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Poziom & text\\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Stanowisko}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Odział}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Dział-Id & int \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Dział}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Urlop}
+
+\underline{Id} & int \\
+\hline
+Od-kiedy & datetime\\
+\hline
+Do-kiedy & datetime\\
+\hline
+Pracownik-Id & int \\
+\hline
+Urlop-Typ-Id & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Typ-Urlop}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Umowa}
+\hline
+\underline{Id} & int \\
+\hline
+Od-kiedy & datetime\\
+\hline
+Do-kiedy & datetime\\
+\hline
+Umowa-Typ & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Typ-Umowa}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Stan-Cywilny}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Język-Obcy}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Rodzaj-Znajomości-Id & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Rodzaj-Znajomości}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+\begin{attributesTable}{Historia-Edukacji}
+\hline
+\underline{Id} & int \\
+\hline
+Od-kiedy & datetime \\
+\hline
+Do-kiedy & datetime \\
+\hline
+Szkoła-Id & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Szkoła}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\hline
+Miasto-Id & int\\
+\end{attributesTable}
+
+\begin{attributesTable}{Hobby}
+\hline
+\underline{Id} & int \\
+\hline
+Nazwa & text \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Lista-Umiejętności}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Umiejętność-Id} & int \\
+\end{attributesTable}
+
+
+\begin{attributesTable}{Lista-Historii-Zatrudnienia}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Historia-Zatrudnienia-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Uprawnień}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Uprawnienie-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Certyfikatów}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Certyfikat-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Szkoleń}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Szkolenie-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Języków-Obcych}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Język-Obcy-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Historii-Edukacji}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Historia-Edukacji-Id} & int \\
+\end{attributesTable}
+
+\begin{attributesTable}{Lista-Hobby}
+\hline
+\underline{Pracownik-Id} & int \\
+\hline
+\underline{Hobby-Id} & int \\
+\end{attributesTable}
