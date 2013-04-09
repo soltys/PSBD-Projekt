@@ -1,0 +1,70 @@
+﻿digraph {
+    rankdir="LR";
+ node [shape=box];
+subgraph tier1 {
+        rank="same";
+        edge[style="invisible",dir="none"];
+        "Państwo" -> "Dział" -> "Poziom-Umiejętności" -> "Typ-Urlop" -> "Rodzaj-Znajomość" -> "Typ-Umowa";
+        "Typ-Umowa"-> "Stan-cywilny" -> "Uprawnienie" -> "Typ-Szkolenia";
+        "Typ-Szkolenia" -> "Typ-Zatrudnienia" -> "Stanowisko" -> "Certyfikat" -> "Hobby" ;
+    }
+
+subgraph tier2{
+        rank="same";
+        edge[style="invisible",dir="none"];
+        "Język-Obcy" -> "Oddział" -> "Miasto" -> "Umiejętność" -> "Umowa" -> "Język-Obcy" ;
+    }
+
+subgraph tier3{
+        rank="same";
+        edge[style="invisible",dir="none"];
+       "Firma" -> "Szkoła" -> "Szkolenie" -> "Pracownik";
+    }
+
+subgraph tier4{
+        rank="same";
+        edge[style="invisible",dir="none"];
+       "Historia-Zatrudnienia" -> "Historia-Edukacji";
+    }
+
+
+
+"Miasto" -> "Pracownik";
+"Umowa" -> "Pracownik";
+"Stanowisko" -> "Pracownik";
+"Oddział" -> "Pracownik";
+"Pracownik" -> "Urlop";
+"Umowa" -> "Pracownik";
+"Stan-cywilny" -> "Pracownik";
+"Państwo" -> "Miasto";
+"Miasto" -> "Firma";
+"Miasto" -> "Szkoła";
+"Poziom-Umiejętności" -> "Umiejętność";
+"Umiejętność" -> "Szkolenie";
+"Typ-Zatrudnienia" -> "Historia-Zatrudnienia";
+"Firma" -> "Historia-Zatrudnienia";
+"Typ-Szkolenia" -> "Szkolenie";
+"Dział" -> "Oddział";
+"Typ-Urlop" -> "Urlop";
+"Typ-Umowa" -> "Umowa";
+"Rodzaj-Znajomość" -> "Język-Obcy";
+"Szkoła" -> "Historia-Edukacji";
+
+"Pracownik" -> "Lista-Umiejętności";
+"Umiejętność" -> "Lista-Umiejętności";
+"Pracownik" -> "Lista-Historii-Zatrudnienia";
+"Historia-Zatrudnienia" -> "Lista-Historii-Zatrudnienia";
+"Pracownik" -> "Lista-Uprawnień";
+"Uprawnienie" -> "Lista-Uprawnień";
+"Pracownik" -> "Lista-Certyfikatów";
+"Certyfikat" -> "Lista-Certyfikatów";
+"Pracownik" -> "Lista-Szkoleń";
+"Szkolenie" -> "Lista-Szkoleń";
+"Pracownik" -> "Lista-Języków-Obcych";
+"Język-Obcy" -> "Lista-Języków-Obcych";
+"Pracownik" -> "Lista-Historii-Edukacji";
+"Historia-Edukacji" -> "Lista-Historii-Edukacji";
+"Pracownik" -> "Lista-Hobby";
+"Hobby" -> "Lista-Hobby";
+
+}
