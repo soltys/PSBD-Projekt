@@ -1,32 +1,29 @@
 ﻿digraph {
+
     rankdir="LR";
- node [shape=box];
-subgraph tier1 {
-        rank="same";
-        edge[style="invisible",dir="none"];
-        "Państwo" -> "Dział" -> "Poziom-Umiejętności" -> "Typ-Urlop" -> "Rodzaj-Znajomość" -> "Typ-Umowa";
-        "Typ-Umowa"-> "Stan-cywilny" -> "Uprawnienie" -> "Typ-Szkolenia";
-        "Typ-Szkolenia" -> "Typ-Zatrudnienia" -> "Stanowisko" -> "Certyfikat" -> "Hobby" ;
-    }
+    node [shape=box];
 
-subgraph tier2{
-        rank="same";
-        edge[style="invisible",dir="none"];
-        "Język-Obcy" -> "Oddział" -> "Miasto" -> "Umiejętność" -> "Umowa" -> "Język-Obcy" ;
-    }
+{rank="same";
+    "Państwo" ; "Dział" ; "Poziom-Umiejętności" ; "Typ-Urlop" ; "Rodzaj-Znajomość" ;
+    "Typ-Umowa"; "Stan-cywilny" ; "Uprawnienie" ; "Typ-Szkolenia";
+    "Typ-Szkolenia" ; "Typ-Zatrudnienia" ; "Stanowisko" ; "Certyfikat" ; "Hobby" ;
+}
 
-subgraph tier3{
-        rank="same";
-        edge[style="invisible",dir="none"];
-       "Firma" -> "Szkoła" -> "Szkolenie" -> "Pracownik";
-    }
+{rank="same";
+    "Język-Obcy" ; "Oddział" ; "Miasto" ; "Umiejętność" ; "Umowa" ; "Język-Obcy" ;
+}
 
-subgraph tier4{
-        rank="same";
-        edge[style="invisible",dir="none"];
-       "Historia-Zatrudnienia" -> "Historia-Edukacji";
-    }
+{rank="same";
+    "Firma" ; "Szkoła" ; "Szkolenie" ; "Pracownik";
+}
 
+{rank="same";
+    "Historia-Zatrudnienia" ; "Historia-Edukacji"; "Urlop"; 
+}
+
+{rank="same";
+    "Lista-Historii-Zatrudnienia";
+}
 
 
 "Miasto" -> "Pracownik";
@@ -34,7 +31,6 @@ subgraph tier4{
 "Stanowisko" -> "Pracownik";
 "Oddział" -> "Pracownik";
 "Pracownik" -> "Urlop";
-"Umowa" -> "Pracownik";
 "Stan-cywilny" -> "Pracownik";
 "Państwo" -> "Miasto";
 "Miasto" -> "Firma";
