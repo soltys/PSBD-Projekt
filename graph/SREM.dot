@@ -4,52 +4,54 @@
     node [shape=box];
 
 {rank="same";
-    "Państwo" ; "Dział" ; "Poziom-Umiejętności" ; "Typ-Urlop" ; "Rodzaj-Znajomość" ;
+    "Państwo" ; "Oddział" ; "Poziom-Umiejętności" ; "Typ-Urlop" ;
     "Typ-Umowa"; "Stan-cywilny" ; "Uprawnienie" ; "Typ-Szkolenia";
-    "Typ-Szkolenia" ; "Typ-Zatrudnienia" ; "Stanowisko" ; "Certyfikat" ; "Hobby" ;
+    "Typ-Szkolenia" ; "Typ-Zatrudnienia" ; "Stanowisko" ; "Certyfikat" ; "Hobby" ;"Umiejętność" ; "Język-Obcy" ; 
 }
 
 {rank="same";
-    "Język-Obcy" ; "Oddział" ; "Miasto" ; "Umiejętność" ; "Umowa" ; "Język-Obcy" ;
+    "Dział" ; "Miasto" ;   "Szkolenie" ; 
 }
 
 {rank="same";
-    "Firma" ; "Szkoła" ; "Szkolenie" ; "Pracownik";
+    "Firma" ; "Szkoła" ; "Pracownik";
 }
 
 {rank="same";
-    "Historia-Zatrudnienia" ; "Historia-Edukacji"; "Urlop"; 
+    "Historia-Zatrudnienia" ; "Historia-Edukacji"; "Urlop";  "Umowa" ;
 }
 
 {rank="same";
-    "Lista-Historii-Zatrudnienia";
+
 }
 
-
+"Dział" ->  "Umowa"
 "Miasto" -> "Pracownik";
-"Umowa" -> "Pracownik";
 "Stanowisko" -> "Pracownik";
-"Oddział" -> "Pracownik";
+"Pracownik" -> "Historia-Edukacji"
+"Poziom-Umiejętności" -> "Lista-Języków-Obcych"
+
 "Pracownik" -> "Urlop";
+"Pracownik" -> "Umowa";
 "Stan-cywilny" -> "Pracownik";
 "Państwo" -> "Miasto";
+"Stanowisko" -> "Umowa";
 "Miasto" -> "Firma";
 "Miasto" -> "Szkoła";
-"Poziom-Umiejętności" -> "Umiejętność";
 "Umiejętność" -> "Szkolenie";
 "Typ-Zatrudnienia" -> "Historia-Zatrudnienia";
 "Firma" -> "Historia-Zatrudnienia";
+"Pracownik" -> "Historia-Zatrudnienia";
+"Stanowisko" -> "Historia-Zatrudnienia";
 "Typ-Szkolenia" -> "Szkolenie";
-"Dział" -> "Oddział";
+"Poziom-Umiejętności" -> "Szkolenie";
+"Oddział" -> "Dział";
 "Typ-Urlop" -> "Urlop";
 "Typ-Umowa" -> "Umowa";
-"Rodzaj-Znajomość" -> "Język-Obcy";
 "Szkoła" -> "Historia-Edukacji";
-
 "Pracownik" -> "Lista-Umiejętności";
 "Umiejętność" -> "Lista-Umiejętności";
-"Pracownik" -> "Lista-Historii-Zatrudnienia";
-"Historia-Zatrudnienia" -> "Lista-Historii-Zatrudnienia";
+"Poziom-Umiejętności" -> "Lista-Umiejętności";
 "Pracownik" -> "Lista-Uprawnień";
 "Uprawnienie" -> "Lista-Uprawnień";
 "Pracownik" -> "Lista-Certyfikatów";
@@ -58,8 +60,6 @@
 "Szkolenie" -> "Lista-Szkoleń";
 "Pracownik" -> "Lista-Języków-Obcych";
 "Język-Obcy" -> "Lista-Języków-Obcych";
-"Pracownik" -> "Lista-Historii-Edukacji";
-"Historia-Edukacji" -> "Lista-Historii-Edukacji";
 "Pracownik" -> "Lista-Hobby";
 "Hobby" -> "Lista-Hobby";
 
