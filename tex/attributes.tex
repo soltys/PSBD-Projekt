@@ -17,12 +17,6 @@ E--mail & text \\
 \hline
 PESEL & text \\
 \hline
-Stanowisko-Id & int \\
-\hline
-Odział-Id & int \\
-\hline
-Umowa-Id & int \\
-\hline
 Stan-Cywilny-Id & int \\
 \hline
 Kandydat & bool \\
@@ -55,8 +49,6 @@ Państwo-Id & int \\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
-\hline
-Poziom-Umiejętności-Id & int \\
 \end{attributesTable}
 
 \begin{attributesTable}{Poziom-Umiejętności}
@@ -75,15 +67,17 @@ Nazwa & text \\
 
 \begin{attributesTable}{Historia-Zatrudnienia}
 \hline
-\underline{Id} & int \\
+\underline{Pracownik-Id} & int \\
 \hline
 Od-kiedy & datetime \\
 \hline
 Do-kiedy & datetime \\
 \hline
-Typ-Zatrudnienia-Id & int \\
+\underline{Typ-Zatrudnienia-Id} & int \\
 \hline
-Firma-Id & int \\
+\underline{Firma-Id} & int \\
+\hline
+\underline{Stanowisko-Id} & int \\
 \end{attributesTable}
 
 
@@ -102,8 +96,6 @@ Miasto-Id & int\\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
-\hline
-Ważność & datetime\\
 \end{attributesTable}
 
 
@@ -112,8 +104,6 @@ Ważność & datetime\\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
-\hline
-Osoba-Wystawiająca & text\\
 \end{attributesTable}
 
 \begin{attributesTable}{Szkolenie}
@@ -127,6 +117,8 @@ Od-kiedy & datetime\\
 Do-kiedy & datetime\\
 \hline
 Typ-Szkolenia-Id & int \\
+\hline
+Poziom-Umiejętności-Id & int \\
 \end{attributesTable}
 
 \begin{attributesTable}{Typ-Szkolenia}
@@ -134,8 +126,6 @@ Typ-Szkolenia-Id & int \\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
-\hline
-Poziom & text\\
 \end{attributesTable}
 
 
@@ -152,8 +142,7 @@ Nazwa & text \\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
-\hline
-Dział-Id & int \\
+
 \end{attributesTable}
 
 
@@ -162,6 +151,8 @@ Dział-Id & int \\
 \underline{Id} & int \\
 \hline
 Nazwa & text \\
+\hline
+Oddział-Id & int \\
 \end{attributesTable}
 
 \begin{attributesTable}{Urlop}
@@ -193,8 +184,13 @@ Od-kiedy & datetime\\
 \hline
 Do-kiedy & datetime\\
 \hline
-Umowa-Typ & int \\
+Umowa-Typ-Id & int \\
+\hline
+Stanowisko-Id& int \\
+\hline
+Pracownik-Id & int \\
 \end{attributesTable}
+
 
 \begin{attributesTable}{Typ-Umowa}
 \hline
@@ -219,12 +215,7 @@ Nazwa & text \\
 Rodzaj-Znajomości-Id & int \\
 \end{attributesTable}
 
-\begin{attributesTable}{Rodzaj-Znajomości}
-\hline
-\underline{Id} & int \\
-\hline
-Nazwa & text \\
-\end{attributesTable}
+
 
 \begin{attributesTable}{Historia-Edukacji}
 \hline
@@ -235,6 +226,8 @@ Od-kiedy & datetime \\
 Do-kiedy & datetime \\
 \hline
 Szkoła-Id & int \\
+\hline
+Pracownik-Id & int \\
 \end{attributesTable}
 
 \begin{attributesTable}{Szkoła}
@@ -259,21 +252,20 @@ Nazwa & text \\
 \underline{Pracownik-Id} & int \\
 \hline
 \underline{Umiejętność-Id} & int \\
+\hline
+\underline{Poziom-Umiejętności-Id} & int \\
 \end{attributesTable}
 
 
-\begin{attributesTable}{Lista-Historii-Zatrudnienia}
-\hline
-\underline{Pracownik-Id} & int \\
-\hline
-\underline{Historia-Zatrudnienia-Id} & int \\
-\end{attributesTable}
+
 
 \begin{attributesTable}{Lista-Uprawnień}
 \hline
 \underline{Pracownik-Id} & int \\
 \hline
 \underline{Uprawnienie-Id} & int \\
+\hline
+Ważność & datetime \\
 \end{attributesTable}
 
 \begin{attributesTable}{Lista-Certyfikatów}
@@ -281,6 +273,8 @@ Nazwa & text \\
 \underline{Pracownik-Id} & int \\
 \hline
 \underline{Certyfikat-Id} & int \\
+\hline
+Kto-Wystawił & text \\
 \end{attributesTable}
 
 \begin{attributesTable}{Lista-Szkoleń}
@@ -295,14 +289,11 @@ Nazwa & text \\
 \underline{Pracownik-Id} & int \\
 \hline
 \underline{Język-Obcy-Id} & int \\
+\hline
+Poziom & int \\
 \end{attributesTable}
 
-\begin{attributesTable}{Lista-Historii-Edukacji}
-\hline
-\underline{Pracownik-Id} & int \\
-\hline
-\underline{Historia-Edukacji-Id} & int \\
-\end{attributesTable}
+
 
 \begin{attributesTable}{Lista-Hobby}
 \hline

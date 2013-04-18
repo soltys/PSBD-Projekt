@@ -16,11 +16,9 @@
 	\hline
 	Stanowisko & Pracownik& $0:*$ &	\texttt{FK}\\
 	\hline
-	Odział & Pracownik& $0:*$ &	\texttt{FK}\\
-	\hline
 	Pracownik  & Urlop  & $0:*$ & \texttt{PK}\\	
 	\hline
-	Umowa &Pracownik & $0:1$ & \texttt{PK}\\
+	Pracownik &  Umowa & $0:1$ & \texttt{PK}\\
 	\hline
 	Stan-cywilny & Pracownik & $1:*$ & \texttt{FK}\\
 	\hline
@@ -32,7 +30,13 @@
 	%PAŃSTWO
 	\hline
 	Państwo & Miasto & $1:*$ & \texttt{FK}	\\
-	
+	%Stanowisko
+	\hline
+	Stanowisko & Umowa& $1:*$& \texttt{FK}	\\
+	\hline
+	Dział & Umowa & $1:0$ & \texttt{FK}	\\
+	\hline
+	Pracownik & Historia-Edukacji & $1:0$ & \texttt{FK}	\\
 	%MIASTO
 	\hline
 	Miasto & Firma & $1:*$ & \texttt{FK}\\
@@ -41,23 +45,26 @@
 		
 	%UMIEJĘTNOŚĆ
 	\hline
-	Poziom-Umiejętności &	Umiejętność & $1:*$ & \texttt{FK}\\
-	\hline
     Umiejętność &  Szkolenie & $1:*$ & \texttt{FK}\\
 	
 	%Historia-Zatrudnienia
 	\hline
-	Typ-Zatrudnienia & Historia-Zatrudnienia & $1:*$ & \texttt{FK}\\
+	Typ-Zatrudnienia & Historia-Zatrudnienia & $1:*$ & \texttt{PK}\\
 	\hline
-	Firma & Historia-Zatrudnienia & $1:*$ & \texttt{FK}\\
+	Firma & Historia-Zatrudnienia & $1:*$ & \texttt{PK}\\
+	\hline
+	Pracownik & Historia-Zatrudnienia & $1:*$ & \texttt{PK}\\
+	\hline
+	Stanowisko & Historia-Zatrudnienia & $1:*$ & \texttt{PK}\\
 	
 	%SZKOLENIE
 	\hline
 	Typ-Szkolenia & Szkolenie & $1:*$ & \texttt{FK}\\
-	
+	\hline
+	Poziom-Umiejętności & Szkolenie & $0:*$ & \texttt{FK}\\
 	%Odział
 	\hline
-	Dział &	Odział & $1:*$ &\texttt{FK}\\
+	Odział & Dział & $1:*$ &\texttt{FK}\\
 	
 	%URLOP
 	\hline
@@ -67,13 +74,12 @@
 	\hline
 	Typ-Umowa & Umowa & $1:*$ & \texttt{FK}\\
 	
-	%JĘZYK OBCY
-	\hline
-	Rodzaj-Znajomość & Język-obcy & $1:*$ & \texttt{FK}\\
 	
 	%Historia-Edukacji
 	\hline
 	Szkoła & Historia-Edukacji & $1:*$ & \texttt{FK}\\
 	
+	\hline
+	Poziom-Umiejętności & Lista-Języków-Obcych & $0:*$ & \texttt{FK}\\
 
 \end{relationsTable}
