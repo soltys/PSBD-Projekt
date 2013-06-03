@@ -1,0 +1,94 @@
+%relationsTable
+\newenvironment{functionsTable}{
+
+\begin{center}
+  \begin{longtabu}{|l|l|l|l|l|}
+  
+ 	  \caption{Tabela funkcji}
+  \label{tab:functions}
+  \hline
+	\large\textbf{Nazwa}&\large\textbf{Opis} &\large\textbf{Parametry}&\large\textbf{Pseudokod}&\large\textbf{Zwracana wartość}\\
+	\endfirsthead
+		
+\multicolumn{5}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+  	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
+\endhead	
+	
+	
+\hline \multicolumn{5}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+%relationsTable after
+{
+	\end{longtabu}
+	\end{center}
+}
+
+
+%relationsTable
+\newenvironment{relationsTable}[2]{
+
+\begin{center}
+  \begin{longtabu}{|l|l|c|c|}
+  
+ 	  \caption{#1}
+  \label{#2}
+  \hline
+	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
+	\endfirsthead
+		
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+  	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
+\endhead	
+	
+	
+\hline \multicolumn{4}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+%relationsTable after
+{
+	\end{longtabu}
+	\end{center}
+}
+
+
+
+% attributesTable
+\newenvironment{attributesTable}[1]
+{
+\begin{longtabu}{|l|l|}
+\caption{Lista atrybutów dla obiektu \textbf{#1}}
+ ~\\ \hline
+\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
+	\endfirsthead
+		
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
+\endhead		
+	
+\hline \multicolumn{2}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+% attributesTable after
+{
+\end{longtabu}
+}
+% attributesTable end

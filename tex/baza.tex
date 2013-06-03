@@ -22,68 +22,7 @@
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
-%relationsTable
-\newenvironment{relationsTable}[2]{
-
-\begin{center}
-  \begin{longtabu}{|l|l|c|c|}
-  
- 	  \caption{#1}
-  \label{#2}
-  \hline
-	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
-	\endfirsthead
-		
-\multicolumn{4}{c}%
-{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
-  \hline
-  	\large\textbf{Rodzic}&\large\textbf{Dziecko} &\large\textbf{Relacja}&\large\textbf{FK / PK}\\
-\endhead	
-	
-	
-\hline \multicolumn{4}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
-\endfoot  
-  
-\hline
-\endlastfoot
-
-}
-%relationsTable after
-{
-	\end{longtabu}
-	\end{center}
-}
-
-
-
-% attributesTable
-\newenvironment{attributesTable}[1]
-{
-\begin{longtabu}{|l|l|}
-\caption{Lista atrybutów dla obiektu \textbf{#1}}
- ~\\ \hline
-\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
-	\endfirsthead
-		
-\multicolumn{2}{c}%
-{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
-  \hline
-\textbf{Nazwa atrybutu} & \textbf{Typ atrybutu}\\ 
-\endhead		
-	
-\hline \multicolumn{2}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
-\endfoot  
-  
-\hline
-\endlastfoot
-
-}
-% attributesTable after
-{
-\end{longtabu}
-}
-% attributesTable end
-
+\usepackage{custom-tables}
 
 \title{Programowanie serwerów baz danych}
 \author{Paweł Sołtysiak, Marcin Klepacki}
@@ -158,5 +97,9 @@ Spis relacji dla tabel skrzyżowań, znajdują się w tabeli nr \ref{tab:databas
 \subsection{Diagram modelu SERM}
 \includegraphics[width=\textwidth]{tex/srem.png}
 
+\section{Projekt mechanizmów programowania serwera}
+\subsection{Funkcje}
+\input{tables-functions}
+\subsection{Procedury}
 \end{document}
 
