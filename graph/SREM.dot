@@ -27,7 +27,7 @@
 
 "Dział" ->  "Umowa"
 "Miasto" -> "Pracownik";
-"Stanowisko" -> "Pracownik";
+
 "Pracownik" -> "Historia-Edukacji"
 "Poziom-Umiejętności" -> "Lista-Języków-Obcych"
 
@@ -38,7 +38,7 @@
 "Stanowisko" -> "Umowa";
 "Miasto" -> "Firma";
 "Miasto" -> "Szkoła";
-"Umiejętność" -> "Szkolenie";
+
 "Typ-Zatrudnienia" -> "Historia-Zatrudnienia";
 "Firma" -> "Historia-Zatrudnienia";
 "Pracownik" -> "Historia-Zatrudnienia";
