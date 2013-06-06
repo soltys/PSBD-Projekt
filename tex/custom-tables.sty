@@ -31,6 +31,37 @@
 }
 
 
+\newenvironment{proceduresTable}{
+
+\begin{center}
+  \begin{longtabu}{|p{3cm}|p{2cm}|p{3cm}|p{5cm}|}
+  
+ 	  \caption{Tabela procedur}
+  \label{tab:functions}
+  \hline
+	\textbf{Nazwa}&\textbf{Opis} &\textbf{Parametry}&\textbf{Pseudokod}\\
+	\endfirsthead
+		
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+  	\textbf{Nazwa}&\textbf{Opis}  &\textbf{Parametry}&\textbf{Pseudokod}\\
+\endhead	
+	
+	
+\hline \multicolumn{4}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+%relationsTable after
+{
+	\end{longtabu}
+	\end{center}
+}
+
 %relationsTable
 \newenvironment{relationsTable}[2]{
 

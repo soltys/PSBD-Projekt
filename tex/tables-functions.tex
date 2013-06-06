@@ -4,8 +4,8 @@
 	
 	Wyszukuje element w tablicy porównując wartości w podanej kolumnie&
 	
-	tabela:string,\newline
-    kolumna:string,\newline
+	tabela : string,\newline
+    kolumna : string,\newline
 	wartość &	
 	
 	result = SELECT id \newline
@@ -27,9 +27,9 @@
 	Zlicza ilość wystąpień podanego Id w tabeli. Jeżeli id występuje w tabeli funkcja zwraca 
 	\texttt{true} w przeciwnym wypadku zwraca \texttt{false} &
 		
-	tabela:string,\newline
-    id:int,\newline
-	kolumna:string &	
+	tabela : string,\newline
+    id : int,\newline
+	kolumna : string &	
 	
 	result = SELECT\newline
 	COUNT(*) FROM table \newline
@@ -51,8 +51,8 @@
 	
 	Zwraca Id rekordu w tabeli słownikowej. Zwraca numer id lub zero w przypadku błędu &
 	
-	tabela:string, \newline
-	wartość:string, \newline
+	tabela : string, \newline
+	wartość : string, \newline
 	
 	&
 	
@@ -60,6 +60,7 @@
 	(tabela,Nazwa,wartość)
 	
 	&
+		\textbf{Integer}
 	\begin{list}{\labelitemi}{\leftmargin=1em}
 	\item Id jeżeli taki element istnieje
 	\item 0 jeżeli taki element nie istnieje
@@ -67,12 +68,34 @@
 	\\
 	
 	\hline
+	Dodaj-Do-Słownika&
+	
+	Zwraca Id rekordu w tabeli słownikowej. Zwraca numer id lub zero w przypadku błędu &
+	
+	tabela : string, \newline
+	wartość : string, \newline
+	
+	&
+	
+	return INSERT INTO \newline
+	tabela (‘Nazwa’) \newline
+	Values (wartość);\newline
+	
+	&
+		\textbf{Integer}
+\begin{list}{\labelitemi}{\leftmargin=1em}
+	\item Id jeżeli taki element istnieje
+	\item 0 jeżeli taki element nie istnieje
+	\end{itemize}
+	\\	
+	
+	\hline
 	Dodaj-Pracownika&
 	
 	Dodaje kolejny rekord w tabeli pracownika. Zwraca numer id lub zero w przypadku błędu &
 	
-	imie:string, \newline
-	nazwisko:string, \newline
+	imie : string, \newline
+	nazwisko : string, \newline
 	
 	&
 	
@@ -81,6 +104,7 @@
 	Values (imie, nazwisko);\newline
 	
 	&
+		\textbf{Integer}
 	\begin{list}{\labelitemi}{\leftmargin=1em}
 	\item Id jeżeli taki element istnieje
 	\item 0 jeżeli taki element nie istnieje
@@ -92,32 +116,32 @@
 	
 	Funkcja dodaje nową umowę, zwraca id lub zero w przypadku błędu. &
 	
-	Pracownik-Id :int
-Nazwa-typ-umowy :string
-Nazwa-dzial :string:
-Nazwa-stanowiska :string
+	Pracownik-Id : int
+	Nazwa-typ-umowy : string
+	Nazwa-dzial : string:
+	Nazwa-stanowiska : string
 
 	
 	&
 	typ-umowy-id = Wartość-Słownikowa(Typ-umowy, nazwa-typ-umowy)\newline
-if(typ-umowy-id == 0 )\newline
-{\newline
-Return 0;\newline
-}\newline
+	if(typ-umowy-id == 0 )\newline
+	\{\newline
+	Return 0;\newline
+	\}\newline
 
 \newline
 dzial-id = Wartość-Słownikowa(dzial, nazwa-dzial)\newline
 if(dzial-id == 0 )\newline
-{\newline
+\{\newline
 Return 0;\newline
-}\newline
+\}\newline
 
 
 stanowisko-id =  Wartość-Słownikowa(Stanowisko, nazwa-stanowiska)\newline
 if(stanowisko-id == 0 )\newline
-{\newline
+\{\newline
 Return 0;\newline
-}\newline
+\}\newline
 
 Return INSERT INTO Umowa \newline
  (Pracownik-Id, Typ-Umowy, Dzial-Id, Stanowisko-Id) \newline
@@ -125,10 +149,12 @@ Return INSERT INTO Umowa \newline
 
 	
 	&
+		\textbf{Integer}
 	\begin{list}{\labelitemi}{\leftmargin=1em}
 	\item Id jeżeli taki element istnieje
 	\item 0 jeżeli taki element nie istnieje
 	\end{itemize}
 	\\	
+\end{functionsTable}
 
-\end{relationsTable}
+

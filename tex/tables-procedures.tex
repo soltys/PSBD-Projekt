@@ -1,0 +1,105 @@
+\begin{proceduresTable}
+\hline
+Usun-Z-Slownika&
+
+Usuwa wartość z słownika&
+
+tabela : string\newline
+wartość :string&
+
+rekord-id = Wartość-Słownikowa(tabela, wartość); \newline
+
+if(rekord-id != 0)\newline
+\{\newline
+	DELETE FROM tabela WHERE Id = rekord-id
+\}\newline
+\\
+
+\hline
+Dodaj-Miasto&
+Dodaje miasto do słownika, oraz państwo jeżeli takie nie istnieje&
+
+nazwa-miasta : string\newline
+nazwa-państwa: string\newline
+&
+
+	państwo-id = Wartość-Słownikowa(Państwo, nazwa-państwa); \newline
+
+	if(państwo-id == 0)\newline
+	\{ \newline
+		państwo-id = Dodaj-Do-Słownika(Państwo, nazwa-państwa);\newline
+	\} \newline
+	\newline
+	INSERT INTO \newline
+	Pracownik (‘nazwa’, ‘Państwo\_id’) \newline
+	Values (nazwa-miasta, panstwo-id);\newline	
+	\\
+	
+\hline
+Dodaj-Dział&
+Dodaje dział do słownika, oraz Oddział jeżeli takie nie istnieje&
+
+nazwa-działu : string\newline
+nazwa-oddziału: string\newline
+&
+
+	oddział-id = Wartość-Słownikowa(Oddział, nazwa-oddziału); \newline
+
+	if(oddział-id == 0)\newline
+	\{ \newline
+		oddział-id = Dodaj-Do-Słownika(Oddział, nazwa-oddziału);\newline
+	\} \newline
+	\newline
+	INSERT INTO \newline
+	Pracownik (‘nazwa’, ‘Oddział\_id’) \newline
+	Values (nazwa-działu, oddział-id);\newline	
+	\\
+	
+\hline
+Usuń-Dział&
+Usuwa dział z słownika, oraz oddział jeżeli to jest ostatnie wystąpienie&
+
+nazwa-działu : string\newline
+&
+
+	dział-id =\newline
+	 Wartość-Słownikowa(Dział, nazwa-działu); \newline
+
+	oddział-id = SELECT oddział\_id FROM dział WHERE id =\newline
+	dział-id\newline
+
+	DELETE FROM dział WHERE id =\newline
+	dział-id \newline
+
+	if(!Czy-Id-jest-użyty(Dział,oddział-id,'oddział\_id'))\newline
+	\{ \newline
+		DELETE FROM oddział WHERE id =\newline
+		oddział-id \newline
+	\} \newline
+	
+	\\	
+	
+	\hline
+Usuń-Miasto&
+Usuwa miasto z słownika, oraz państwo jeżeli to jest ostatnie wystąpienie&
+
+nazwa-miasta : string\newline
+&
+
+	miasto-id =\newline
+	 Wartość-Słownikowa(Dział, nazwa-miasta); \newline
+
+	państwo-id = SELECT państwo\_id FROM miasto WHERE id =\newline
+	miasto-id\newline
+
+	DELETE FROM miasto WHERE id =\newline
+	miasto-id \newline
+
+	if(!Czy-Id-jest-użyty(Miasto,państwo-id,'państwo\_id'))\newline
+	\{ \newline
+		DELETE FROM państwo WHERE id =\newline
+		państwo-id \newline
+	\} \newline
+	
+	\\	
+\end{proceduresTable}
