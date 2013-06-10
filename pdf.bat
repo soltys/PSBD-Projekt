@@ -4,8 +4,8 @@ rem tworzenie katalogu tymczasowego
 if not exist tmp mkdir tmp
 rem skrypt do generacji doumentu PDF
 rem wygenerowanie pierwszego pliku aux
-pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex tex/baza.tex
-pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex tex/baza.tex
+pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex -interaction=batchmode  tex/baza.tex
+pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex -interaction=batchmode  tex/baza.tex
 rem tworzenie odwo³añ do bibliografii
 
 

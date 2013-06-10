@@ -1,4 +1,36 @@
-%relationsTable
+\newenvironment{triggersTable}{
+
+\begin{center}
+  \begin{longtabu}{|p{3cm}|p{3cm}|p{1cm}|p{1cm}|p{1cm}|p{4cm}|}
+  
+ 	  \caption{Tabela wyzwalaczy}
+  \label{tab:functions}
+  \hline
+	\textbf{Nazwa}&\textbf{Opis} &\textbf{Tabela}&\textbf{In\-struk\-cja}&\textbf{Typ wyzwalacza}&\textbf{Pseudokod}\\
+	\endfirsthead
+		
+\multicolumn{6}{c}%
+{{\bfseries \tablename\ \thetable{} -- Kontynuacja tabeli}} \\
+  \hline
+\textbf{Nazwa}&\textbf{Opis} &\textbf{Tabela}&\textbf{In\-struk\-cja}&\textbf{Typ wyzwalacza}&\textbf{Pseudokod}\\
+\endhead	
+	
+	
+\hline \multicolumn{6}{|r|}{{Kontynuacja na następnej stronie}} \\ \hline
+\endfoot  
+  
+\hline
+\endlastfoot
+
+}
+%relationsTable after
+{
+	\end{longtabu}
+	\end{center}
+}
+
+
+
 \newenvironment{functionsTable}{
 
 \begin{center}

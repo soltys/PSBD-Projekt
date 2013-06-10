@@ -1,0 +1,98 @@
+\begin{triggersTable}
+\hline
+
+Sprawdź-trwający-urlop	&
+
+
+Sprawdza czy pracownik jest już na jakimś urlopie&
+	Urlop&
+		Insert&
+Instead of	&
+IF (NOT EXISTS \newline
+		(SELECT U.Id\newline
+      		FROM Urlop U,  \newline
+      		     Pracownik P\newline
+      		WHERE P.Id = U.Pracownik\_Id))\newline
+   INSERT INTO Urlop\newline
+      SELECT OD\_kiedy,\newline
+      Do\_kiedy, \newline
+      Pracownik-Id,Urlop-Id\newline
+      FROM inserted\\
+      
+\hline
+Sprawdź-jedna-umowy&
+Sprawdza czy pracownik posiada już jakąś trwającą umowę&
+Umowa&
+Insert&
+Instead of&
+IF (NOT EXISTS \newline
+		(SELECT U.Id\newline
+      	FROM Umowa U,\newline
+      	Pracownik P\newline
+      	WHERE P.Id = U.Pracownik\_Id))\newline
+{\newline
+   INSERT INTO Urlop\newline
+      SELECT OD\_kiedy,Do\_kiedy,\newline
+       Pracownik-Id,Umowa-Typ-Id,\newline
+       Stanowisko-Id\newline
+      FROM inserted\newline
+}\\
+
+
+\hline
+Dodaj-Dział&
+Zapewnia poprawne wprowadzenie danych do bazy danych&
+Odział&
+Insert&
+Instead of&
+
+Odblokuj(Oddział) \newline
+Odblokuj(Dział)\newline
+
+Dodaj-Dział(Inserted.nazwa-oddziału,\newline
+ inserted.nazwa-działu);\newline
+
+Blokuj(Dział)\newline 
+Blokuj(Oddział)\newline
+
+\\
+
+
+
+
+\hline
+Dodaj-Miasto&
+Zapewnia poprawne wprowadzenie danych do bazy danych&
+Odział&
+Insert&
+Instead of&
+
+Odblokuj(Państwo) \newline
+Odblokuj(Miasto)\newline
+
+Dodaj-Miasto(Inserted.nazwa-Państwa,\newline
+ inserted.nazwa-miasta);\newline
+ 
+Blokuj(Miasto)\newline
+Blokuj(Państwo)\newline
+\\
+
+\hline
+Usun-nieuzywane-oddział&
+Usuwa nieużywane oddział z słownika jeżeli nie ma zapisanego działu w danym oddziale&
+Miasto&
+Delete&
+Instead of&
+Usun-Dział(deleted.Nazwa);\newline
+\\
+
+\hline
+Usun-nieuzywane-państwo&
+Usuwa nieużywane państwo z słownika jeżeli nie ma zapisanego miasta w danym państwie&
+Miasto&
+Delete&
+Instead of&
+Usun-Miasto(deleted.Nazwa);\newline
+\\
+
+\end{triggersTable}
