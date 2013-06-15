@@ -1,4 +1,4 @@
-@echo off
+Ôªø@echo off
 
 rem tworzenie katalogu tymczasowego
 if not exist tmp mkdir tmp
@@ -6,7 +6,7 @@ rem skrypt do generacji doumentu PDF
 rem wygenerowanie pierwszego pliku aux
 pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex -interaction=batchmode  tex/baza.tex
 pdflatex -file-line-error-style -output-directory=tmp -aux-directory=tmp -include-directory=tex -interaction=batchmode  tex/baza.tex
-rem tworzenie odwo≥aÒ do bibliografii
+rem tworzenie odwo≈Ça≈Ñ do bibliografii
 
 
 rem i interaktywny pdf gotowy
