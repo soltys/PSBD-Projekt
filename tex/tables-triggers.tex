@@ -95,4 +95,21 @@ Instead of&
 Usun-Miasto(deleted.Nazwa);\newline
 \\
 
+
+\hline
+sprawdz-PESEL&
+Sprawdza czy dodany pracownik posiada unikalny PESEL&
+Pra\-co\-wnik&
+Insert&
+Instead of&
+osoba-pesel = (select PESEL from inserted);\newline
+czy-unikalny = dbo.Czy-Pesel-jest-Unikalny @PESEL=@osoba-pesel\newline
+if czy-unikalny = 1		 \newline
+		print 'Osoba została dodana'\newline		
+	else					\newline
+		print 'Osoba o podanym PESEL juz istnieje!'				\newline
+		\newline
+\\
+
+
 \end{triggersTable}

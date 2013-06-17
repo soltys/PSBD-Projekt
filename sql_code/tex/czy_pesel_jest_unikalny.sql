@@ -8,7 +8,7 @@ BEGIN
 	declare @ilosc_osob as int;
 	set @ilosc_osob = (select count(*) from osoba where PESEL=@PESEL);
 	
-	if	@ilosc_osob > 1
+	if	@ilosc_osob > 0
 		return 0
 	
 	return 1

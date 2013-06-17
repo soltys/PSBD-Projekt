@@ -88,28 +88,7 @@
 	\item 0 jeżeli taki element nie istnieje
 	\end{itemize}
 	\\	
-	
-	\hline
-	Dodaj-Pracownika&
-	
-	Dodaje kolejny rekord w tabeli pracownika. Zwraca numer id lub zero w przypadku błędu &
-	
-	imie : string, \newline
-	nazwisko : string, \newline
-	
-	&
-	
-	return  INSERT INTO \newline
-	Pracownik (‘imię’, ‘nazwisko’) \newline
-	Values (imie, nazwisko);\newline
-	
-	&
-		\textbf{Integer}
-	\begin{list}{\labelitemi}{\leftmargin=1em}
-	\item Id jeżeli taki element istnieje
-	\item 0 jeżeli taki element nie istnieje
-	\end{itemize}
-	\\	
+
 	
 	\hline
 	Dodaj-Umowę&
@@ -155,6 +134,32 @@ Return INSERT INTO Umowa \newline
 	\item 0 jeżeli taki element nie istnieje
 	\end{itemize}
 	\\	
+	
+	
+	
+	\hline
+	Czy-Pesel-jest-Unikalny&
+	
+	Sprawdza czy pesel osoby jest unikalny &
+	
+	PESEL : int \newline	
+	&
+	
+ilosc-osob = (select count(*) \newline
+ from osoba where PESEL=PESEL); \newline
+	 \newline
+	if	@ilosc-osob \> 0 \newline
+		return 0 \newline
+	
+	return 1 \newline
+	
+	&
+		\textbf{Boolean}
+\begin{list}{\labelitemi}{\leftmargin=1em}
+	\item true jeżeli jest unikalny
+	\item false jeżeli nie jest unikalny
+	\end{itemize}
+	\\
 \end{functionsTable}
 
 
